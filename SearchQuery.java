@@ -26,7 +26,7 @@ public class SearchQuery extends UnicastRemoteObject
     public String sendMessage(Message message) throws RemoteException
     {
         String result;
-        if (message != null && !message.equals("") && map.containsKey(message.getType())){
+        if (message.getType() != null && !message.getType().equals("") && map.containsKey(message.getType())){
             message.priority = map.get(message.getType()); 
             messages.add(message);
             result = "Ok. Reclamação recebida!";
