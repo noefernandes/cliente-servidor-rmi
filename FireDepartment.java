@@ -1,13 +1,13 @@
 //program for client application
 import java.util.ArrayList;
 import java.rmi.*;
-public class Bombeiros
+public class FireDepartment
 {
     public static void main(String args[])
     {
         while(true){
             ArrayList<Message> response;
-            String division = "Bombeiros";
+            String division = "bombeiros";
 
             try
             {

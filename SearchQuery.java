@@ -2,11 +2,12 @@
 import java.rmi.*;
 import java.rmi.server.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 public class SearchQuery extends UnicastRemoteObject
                          implements Search
 {
-    //Message current = null;
     public ArrayList<Message> messages;
+    public HashMap<String, String> map;
 
     // Default constructor to throw RemoteException
     // from its parent constructor
@@ -14,13 +15,19 @@ public class SearchQuery extends UnicastRemoteObject
     {
         super();
         messages = new ArrayList<>();
+        map = new HashMap<>();
+        map.put("assassinato", "URGENTE");
+        map.put("roubo", "ALTA");
+        map.put("incendio", "URGENTE");
+        map.put("resgatar animal", "MEDIA");
     }
   
     // Implementation of the query interface
     public String sendMessage(Message message) throws RemoteException
     {
         String result;
-        if (message != null && !message.equals("")){
+        if (message != null && !message.equals("") && map.containsKey(message.getType())){
+            message.priority = map.get(message.getType()); 
             messages.add(message);
             result = "Ok. Reclamação recebida!";
         }else{

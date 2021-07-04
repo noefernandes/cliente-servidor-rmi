@@ -10,10 +10,8 @@ public class ClientRequest
             Scanner ler = new Scanner(System.in);
 
             Message message = new Message();
-            System.out.println("Insira a reclamação:");
+            System.out.println("Insira o tipo de reclamação:");
             message.type = ler.nextLine();
-            System.out.println("Insira a prioridade:");
-            message.priority = ler.nextLine();
             System.out.println("Insira a unidade responsável:");
             message.division = ler.nextLine();
 

@@ -7,7 +7,7 @@ public class Police
     {
         while(true){
             ArrayList<Message> response;
-            String division = "Policia";
+            String division = "policia";
 
             try
             {
